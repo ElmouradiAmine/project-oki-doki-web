@@ -1,7 +1,7 @@
 import { auth } from 'config/firebase';
 import { signOut } from 'firebase/auth';
 
-const logout = () => {
+const logout = (): Promise<void> => {
   return signOut(auth);
 };
 
