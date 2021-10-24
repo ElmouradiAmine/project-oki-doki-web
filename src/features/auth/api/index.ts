@@ -1,3 +1,3 @@
-export * as login from './login';
-export * as logout from './logout';
-export * as signup from './signup';
+export * from './login';
+export * from './logout';
+export * from './signup';
