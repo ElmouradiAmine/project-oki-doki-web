@@ -1,5 +1,6 @@
-import { SetState } from 'zustand';
-import { AuthState, AuthStore, Store } from 'types';
+import create, { SetState } from 'zustand';
+import { devtools } from 'zustand/middleware';
+import { AuthState, AuthStore } from 'types';
 import { login, signup, logout } from 'features/auth/api';
 
 const initialState: AuthState = {
@@ -10,7 +11,7 @@ const initialState: AuthState = {
   isLoading: false,
 };
 
-const authSlice = (set: SetState<Store>): AuthStore => ({
+const authStore = (set: SetState<AuthStore>): AuthStore => ({
   ...initialState,
   login: async ({ email, password }) => {
     set({ isLoading: true, error: '' });
@@ -41,4 +42,4 @@ const authSlice = (set: SetState<Store>): AuthStore => ({
   },
 });
 
-export default authSlice;
+export const useAuth = create(devtools(authStore));
