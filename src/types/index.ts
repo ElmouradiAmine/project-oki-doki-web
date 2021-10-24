@@ -16,5 +16,3 @@ export type AuthActions = {
 };
 
 export type AuthStore = AuthState & AuthActions;
-
-export type Store = AuthStore;
