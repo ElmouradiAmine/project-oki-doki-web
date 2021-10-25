@@ -13,6 +13,7 @@ export type AuthActions = {
   login: (loginDto: LoginDTO) => Promise<void>;
   signup: (signupDto: SignupDTO) => Promise<void>;
   logout: () => Promise<void>;
+  setUser: (user: User | null) => void;
 };
 
 export type AuthStore = AuthState & AuthActions;

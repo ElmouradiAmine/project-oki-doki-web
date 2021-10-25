@@ -40,6 +40,13 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
       set({ isLoading: false, error: JSON.stringify(e) });
     }
   },
+  setUser: (user) => {
+    set({
+      currentUser: user,
+      isAuthenticated: user !== null,
+      isVerified: user?.emailVerified ?? false,
+    });
+  },
 });
 
 export const useAuth = create(devtools(authStore));

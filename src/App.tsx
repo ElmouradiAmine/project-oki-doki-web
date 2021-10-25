@@ -1,8 +1,10 @@
-import { AuthRoutes } from 'features/auth/routes';
 import React from 'react';
+import { AuthRoutes } from 'features/auth/routes';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import useAuthEffect from 'hooks/useAuthEffect';
 
 const App = () => {
+  useAuthEffect();
   return (
     <Router>
       <Switch>
