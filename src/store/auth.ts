@@ -1,5 +1,5 @@
 import create, { SetState } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 import { AuthState, AuthStore } from 'types';
 import { login, signup, logout } from 'features/auth/api';
 
@@ -49,4 +49,4 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
   },
 });
 
-export const useAuth = create(devtools(authStore));
+export const useAuth = create(devtools(persist(authStore, { name: 'auth-local-storage' })));
