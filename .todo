@@ -1,0 +1,33 @@
+# Initial Set up
+
+[x] set up CI.
+[x] set up netlify.
+[x] Remove --fix from eslint.
+[x] clean the project.
+[x] add tests pre push hook
+[x] set up gpg key
+[x] setup chakra ui.
+[x] install firebase
+[x] setup firebase
+[-] setup netlify toml to have prod - preprod env
+[x] create two deploy environnement using netlify UI.
+
+# Implementing AUTH FEATURES
+
+[x] add .env.local example
+[x] add AUTH API
+[x] create login page
+[x] create logout page
+[x] Keep the current user in the store.
+[x] persist auth state in local storage
+[x] Fix bug where public page shows some ms then disapears
+[x] add Google sign in
+[x] improve multiple login provider by using a switch for example
+[x] create an util function to handle firebase errors
+[] clean signup/signin code. ( a lot of repeated code in the forms)
+[] improve the history pushes. (file: AuthButton.tsx)
+[] add firebase cloud function to handle standard signup by adding a random firstName, a random picture...
+
+# Implementing FEED
+
+# Implementing USER
