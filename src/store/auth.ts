@@ -1,7 +1,7 @@
 import create, { SetState } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { AuthState, AuthStore } from 'types';
-import { login, signup, logout, googleLogin } from 'features/auth/api';
+import { login, signup, logout } from 'features/auth/api';
 
 const initialState: AuthState = {
   currentUser: null,
@@ -13,19 +13,10 @@ const initialState: AuthState = {
 
 const authStore = (set: SetState<AuthStore>): AuthStore => ({
   ...initialState,
-  login: async ({ email, password }) => {
+  login: async ({ type, payload }) => {
     set({ isLoading: true, error: '' });
     try {
-      const { user } = await login({ email, password });
-      set({ isLoading: false, isAuthenticated: true, isVerified: user.emailVerified });
-    } catch (e) {
-      set({ isLoading: false, error: JSON.stringify(e) });
-    }
-  },
-  googleLogin: async () => {
-    set({ isLoading: true, error: '' });
-    try {
-      const { user } = await googleLogin();
+      const { user } = await login({ type, payload });
       set({ isLoading: false, isAuthenticated: true, isVerified: user.emailVerified });
     } catch (e) {
       set({ isLoading: false, error: JSON.stringify(e) });
@@ -58,11 +49,4 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
   },
 });
 
-export const useAuth = create(
-  devtools(
-    persist(authStore, {
-      name: 'auth-local-storage',
-      partialize: ({ isAuthenticated, currentUser }) => ({ isAuthenticated, currentUser }),
-    }),
-  ),
-);
+export const useAuth = create(devtools(persist(authStore, { name: 'auth-local-storage' })));

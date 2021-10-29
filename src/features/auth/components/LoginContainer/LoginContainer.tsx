@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
 import { Button } from '@chakra-ui/react';
 import { useAuth } from 'store';
+import { AuthTypes } from 'features/auth/types';
 import Container from '../Container/Container';
 
 const LoginContainer: FC = ({ children }) => {
-  const { googleLogin, isLoading } = useAuth();
+  const { login, isLoading } = useAuth();
   return (
     <Container title="Log in">
-      <Button onClick={googleLogin} isLoading={isLoading}>
+      <Button onClick={() => login({ type: AuthTypes.GOOGLE_AUTH })} isLoading={isLoading}>
         Google login
       </Button>
       {children}
