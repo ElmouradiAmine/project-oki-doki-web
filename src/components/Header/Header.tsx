@@ -1,5 +1,6 @@
 import AuthButtons from 'components/AuthButtons/AuthButtons';
 import Logo from 'components/Logo/Logo';
+import Menu from 'components/Menu/Menu';
 import Searchbar from 'components/Searchbar/Searchbar';
 import React from 'react';
 import { useAuth } from 'store';
@@ -11,7 +12,7 @@ const Header = () => {
     <HeaderContainer>
       <Logo />
       <Searchbar />
-      {isAuthenticated ? <div>authenticated</div> : <AuthButtons />}
+      {isAuthenticated ? <Menu /> : <AuthButtons />}
     </HeaderContainer>
   );
 };
