@@ -12,6 +12,7 @@ import {
 import PasswordInput from 'components/PasswordInput/PasswordInput';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import { useAuth } from 'store';
+import { AuthTypes } from 'features/auth/types';
 
 const schema = yup.object({
   email: yup.string().email().required(),
@@ -30,7 +31,7 @@ const LoginForm = () => {
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    if (validate()) await login({ email, password });
+    if (validate()) await login({ type: AuthTypes.STANDARD_AUTH, payload: { email, password } });
   };
 
   return (

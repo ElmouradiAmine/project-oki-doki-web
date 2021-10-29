@@ -1,5 +1,5 @@
 import { User } from 'firebase/auth';
-import { LoginDTO, SignupDTO } from 'features/auth/types';
+import { LoginProps, SignupDTO } from 'features/auth/types';
 
 export type AuthState = {
   currentUser: User | null;
@@ -10,8 +10,7 @@ export type AuthState = {
 };
 
 export type AuthActions = {
-  login: (loginDto: LoginDTO) => Promise<void>;
-  googleLogin: () => Promise<void>;
+  login: (loginProps: LoginProps) => Promise<void>;
   signup: (signupDto: SignupDTO) => Promise<void>;
   logout: () => Promise<void>;
   setUser: (user: User | null) => void;
