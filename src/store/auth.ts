@@ -49,4 +49,11 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
   },
 });
 
-export const useAuth = create(devtools(persist(authStore, { name: 'auth-local-storage' })));
+export const useAuth = create(
+  devtools(
+    persist(authStore, {
+      name: 'auth-local-storage',
+      partialize: ({ isAuthenticated, currentUser }) => ({ isAuthenticated, currentUser }),
+    }),
+  ),
+);
