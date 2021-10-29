@@ -2,6 +2,7 @@ import create, { SetState } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { AuthState, AuthStore } from 'types';
 import { login, signup, logout } from 'features/auth/api';
+import handleFirebaseError from 'utils/handleFirebaseError';
 
 const initialState: AuthState = {
   currentUser: null,
@@ -19,7 +20,7 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
       const { user } = await login({ type, payload });
       set({ isLoading: false, isAuthenticated: true, isVerified: user.emailVerified });
     } catch (e) {
-      set({ isLoading: false, error: JSON.stringify(e) });
+      set({ isLoading: false, error: handleFirebaseError(e as Error) });
     }
   },
   signup: async ({ email, password }) => {
@@ -28,7 +29,7 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
       const { user } = await signup({ email, password });
       set({ isLoading: false, isAuthenticated: true, isVerified: user.emailVerified });
     } catch (e) {
-      set({ isLoading: false, error: JSON.stringify(e) });
+      set({ isLoading: false, error: handleFirebaseError(e as Error) });
     }
   },
   logout: async () => {
@@ -37,7 +38,7 @@ const authStore = (set: SetState<AuthStore>): AuthStore => ({
       await logout();
       set({ isLoading: false, isAuthenticated: false, isVerified: false, currentUser: null });
     } catch (e) {
-      set({ isLoading: false, error: JSON.stringify(e) });
+      set({ isLoading: false, error: handleFirebaseError(e as Error) });
     }
   },
   setUser: (user) => {
