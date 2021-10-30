@@ -15,6 +15,7 @@ const HeaderContainer: FC = ({ children }) => {
       backgroundColor="white"
       justifyContent="space-around"
       borderBottom="1px solid rgba(34, 90, 89, 0.2)"
+      zIndex="1000"
     >
       <HeaderContent>{children}</HeaderContent>
     </Box>
