@@ -1,9 +1,10 @@
 import React from 'react';
 import { Divider, Text, Link } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
-import Layout from '../components/Layout/Layout';
-import LoginContainer from '../components/LoginContainer/LoginContainer';
-import LoginForm from '../components/LoginForm/LoginForm';
+
+import Layout from 'features/auth/components/Layout/Layout';
+import LoginContainer from 'features/auth/components/LoginContainer/LoginContainer';
+import LoginForm from 'features/auth/components/LoginForm/LoginForm';
 
 export const Login = () => {
   return (

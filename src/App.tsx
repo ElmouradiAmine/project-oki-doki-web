@@ -1,16 +1,20 @@
 import React from 'react';
-import { AuthRoutes } from 'features/auth/routes';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import useAuthEffect from 'hooks/useAuthEffect';
-import Header from 'components/Header/Header';
+import { Login } from 'pages/Login';
+import { Signup } from 'pages/Signup';
+import { PublicRoute } from 'routes/PublicRoute';
+import { PrivateRoute } from 'routes/PrivateRoute';
+import Home from 'pages/Home';
 
 const App = () => {
   useAuthEffect();
   return (
     <Router>
-      <Header />
       <Switch>
-        <AuthRoutes />
+        <PrivateRoute exact path="/" component={Home} />
+        <PublicRoute exact path="/login" component={Login} />;
+        <PublicRoute exact path="/signup" component={Signup} />;
       </Switch>
     </Router>
   );
