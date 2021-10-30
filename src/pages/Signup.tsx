@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, Text, Divider } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 
-import Layout from '../components/Layout/Layout';
-import SignupContainer from '../components/SignupContainer/SignupContainer';
-import SignupForm from '../components/SignupForm/SignupForm';
+import Layout from 'features/auth/components/Layout/Layout';
+import SignupContainer from 'features/auth/components/SignupContainer/SignupContainer';
+import SignupForm from 'features/auth/components/SignupForm/SignupForm';
 
 export const Signup = () => {
   return (
