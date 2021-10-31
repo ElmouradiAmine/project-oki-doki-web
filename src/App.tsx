@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import useAuthEffect from 'hooks/useAuthEffect';
-import { Login } from 'pages/Login';
-import { Signup } from 'pages/Signup';
+import SignupPage from 'pages/Signup';
 import { PublicRoute } from 'routes/PublicRoute';
 import Home from 'pages/Home';
+import LoginPage from 'pages/LoginPage';
 
 const App = () => {
   useAuthEffect();
@@ -12,8 +12,8 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <PublicRoute exact path="/login" component={Login} />;
-        <PublicRoute exact path="/signup" component={Signup} />;
+        <PublicRoute exact path="/login" component={LoginPage} />;
+        <PublicRoute exact path="/signup" component={SignupPage} />;
       </Switch>
     </Router>
   );

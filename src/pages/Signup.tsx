@@ -1,24 +1,16 @@
 import React from 'react';
-import { Link, Text, Divider } from '@chakra-ui/react';
-import { Link as RouteLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Layout from 'components/Layout/Layout';
-import SignupContainer from 'features/auth/components/SignupContainer/SignupContainer';
-import SignupForm from 'features/auth/components/SignupForm/SignupForm';
+import Signup from 'features/auth/components/Signup/Signup';
 
-export const Signup = () => {
+const SignupPage = () => {
+  const history = useHistory();
   return (
     <Layout>
-      <SignupContainer>
-        <SignupForm />
-        <Divider />
-        <Text fontSize="sm">
-          Already have an account?
-          <Link as={RouteLink} to="login" color="twitter.500" fontWeight="bold" marginLeft="5px">
-            Log in
-          </Link>
-        </Text>
-      </SignupContainer>
+      <Signup onModeChange={() => history.push('/login')} />
     </Layout>
   );
 };
+
+export default SignupPage;
