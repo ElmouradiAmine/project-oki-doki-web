@@ -38,20 +38,34 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit}>
       <VStack spacing={4}>
         <FormControl id="email" isRequired>
-          <FormLabel>Email</FormLabel>
-          <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <FormLabel fontWeight="bold" fontSize="14px">
+            Email
+          </FormLabel>
+          <Input
+            fontSize="14px"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </FormControl>
         <FormControl id="password" isRequired>
-          <FormLabel>Password</FormLabel>
-          <PasswordInput value={password} onChange={(e) => setPassword(e.target.value)} />
+          <FormLabel fontWeight="bold" fontSize="14px">
+            Password
+          </FormLabel>
+          <PasswordInput
+            fontSize="14px"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <FormErrorMessage>{error}</FormErrorMessage>
         </FormControl>
-        <Text fontSize="small" alignSelf="flex-start">
+        <Text fontSize="12px" alignSelf="flex-start">
           Forgot password?
         </Text>
         <Button
           type="submit"
-          colorScheme="twitter"
+          colorScheme="brand"
+          fontWeight="bold"
           onClick={handleSubmit}
           disabled={!validate()}
           isLoading={isLoading}

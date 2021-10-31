@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
+import theme from 'theme/theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import '@fontsource/lato';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/sora/400.css';
+import '@fontsource/open-sans';
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <App />
     </ChakraProvider>
   </React.StrictMode>,
