@@ -6,6 +6,10 @@
     "@chakra-ui/react": "^1.6.10",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/lato": "^4.5.0",
+    "@fontsource/montserrat": "^4.5.1",
+    "@fontsource/open-sans": "^4.5.2",
+    "@fontsource/sora": "^4.5.0",
     "@hookform/resolvers": "^2.8.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -47,7 +51,7 @@
     ]
   },
   "lint-staged": {
-    "src/**": [
+    "src/**/*.{ts,tsx}": [
       "yarn format",
       "yarn lint"
     ]

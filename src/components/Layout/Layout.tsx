@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
-import { Box } from '@chakra-ui/react';
+import React from 'react';
+import { Box, BoxProps } from '@chakra-ui/react';
 
-const Layout: FC = ({ children }) => {
+type LayoutProps = BoxProps;
+
+const Layout = ({ children, ...rest }: LayoutProps) => {
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" height="100vh">
+    <Box display="flex" alignItems="center" justifyContent="center" height="100vh" {...rest}>
       {children}
     </Box>
   );
