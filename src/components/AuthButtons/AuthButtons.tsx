@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, HStack } from '@chakra-ui/react';
-import { useHistory } from 'react-router-dom';
+import { Button, HStack, useDisclosure } from '@chakra-ui/react';
+import AuthModal from 'components/AuthModal/AuthModal';
 
 const AuthButtons = () => {
-  const history = useHistory();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <HStack>
       <Button
@@ -11,18 +11,11 @@ const AuthButtons = () => {
         variant="outline"
         paddingLeft="32px"
         paddingRight="32px"
-        onClick={() => history.push('/login')}
+        onClick={onOpen}
       >
         Log in
       </Button>
-      <Button
-        colorScheme="twitter"
-        paddingLeft="32px"
-        paddingRight="32px"
-        onClick={() => history.push('/signup')}
-      >
-        Sign up
-      </Button>
+      <AuthModal isOpen={isOpen} onClose={onClose} />
     </HStack>
   );
 };

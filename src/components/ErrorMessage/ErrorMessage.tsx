@@ -7,7 +7,7 @@ type ErrorMessageProps = {
 
 const ErrorMessage = ({ error }: ErrorMessageProps) => {
   return error ? (
-    <Alert status="error">
+    <Alert status="error" fontSize="13px">
       <AlertIcon />
       {error}
     </Alert>
